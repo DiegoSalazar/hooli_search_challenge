@@ -41,7 +41,7 @@ cd hooli_search_challenge
 ### Install Dependencies
 
 ```
-pip install -r requirements.txt
+sudo pip install -r requirements.txt
 ```
 
 ### Running the App
