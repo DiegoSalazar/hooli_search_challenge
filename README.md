@@ -1,6 +1,9 @@
 # Hooli Search Challenge
 
-This is my solution to the coding challenge detailed below.
+This is my solution to the coding challenge detailed below. The main files of interest in this repo are:
+
+ - [lib/searcher.py](https://github.com/DiegoSalazar/hooli_search_challenge/blob/master/lib/searcher.py)
+ - 
 
 ## Challenge
 
