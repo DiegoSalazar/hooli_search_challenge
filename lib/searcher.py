@@ -16,18 +16,19 @@ class Searcher:
     self.results = []
     self.errors = []
     response = []
-    num_requests = 0
+    numrequests = 0
     starttime = time.time()
 
     for _ in range(num_pages):
       elapsedtime = time.time() - starttime
 
-      if elapsedtime >= ONE_SECOND and num_requests >= MAX_REQUESTS_PER_SECOND:
+      if elapsedtime >= ONE_SECOND and numrequests >= MAX_REQUESTS_PER_SECOND:
         time.sleep(ONE_SECOND)
-      elif elapsedtime >= FIVE_MINUTES and num_requests >= MAX_REQUESTS_PER_5_MINS:
+      elif elapsedtime >= FIVE_MINUTES and numrequests >= MAX_REQUESTS_PER_5_MINS:
         time.sleep(ONE_MINUTE)
 
       response = requests.get(self.url + "?QUERY=" + query)
+      numrequests += 1
       
       if response.status_code is 200:
         self.results.append(response.json())
