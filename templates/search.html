@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Search Improved &#8482;</h1>
+      <p class="lead">Use the form below to fire off a search query and receive highly accurate results.</p>
+
+      <form action="/search">
+        <div class="form-group">
+          <label for="query">Query</label>
+          <input type="text" id="query" name="QUERY" placeholder="QUERY" class="form-control" autofocus />
+        </div>
+
+        <div class="form-group">
+          <label for="n">Number of Pages</label>
+          <input type="number" name="N" class="form-control" placeholder="N" />
+        </div>
+
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
