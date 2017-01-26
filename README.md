@@ -6,7 +6,7 @@ This is my solution to the coding challenge detailed below. The main files of in
  - [lib/searcher.py](https://github.com/DiegoSalazar/hooli_search_challenge/blob/master/lib/searcher.py)
  - [tests/test_searcher.py](https://github.com/DiegoSalazar/hooli_search_challenge/blob/master/tests/test_searcher.py)
 
-The `main.py` file is the app implementation. It responds to the root path `/` and the search results path `/search`. It delegates to the `Searcher` class which implements the code business logic.
+The `main.py` file is the app implementation. It responds to the root path `/` and the search results path `/search`. It delegates to the `Searcher` class which implements the core business logic.
 
 Finally, `tests/test_searcher.py` is the unit test which tests the `Searcher` class. Instructions for running the app and tests are detailed below.
 
