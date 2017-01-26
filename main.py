@@ -1,4 +1,3 @@
-import os
 import time
 import pprint
 import json
@@ -9,17 +8,18 @@ from lib.searcher import Searcher
 
 app = Flask(__name__)
 
-MAX_REQUESTS_PER_SECOND = os.getenv('MAX_REQUESTS_PER_SECOND', 5)
-MAX_REQUESTS_PER_5_MINS = os.getenv('MAX_REQUESTS_PER_5_MINS', 50)
-
 @app.route("/")
 def search():
   return render_template('search.html')
 
 @app.route("/search")
 def results():
+  # Search query = QUERY
   query = request.args.get('QUERY', '')
-  num_pages = request.args.get('N', '')
+
+  # Number of pages from Google = N (up to 100 pages)
+  num_pages = int(request.args.get('N', ''))
+  num_pages = 100 if num_pages > 100 else num_pages
 
   t = time.time()
   searcher = Searcher('http://httpbin.org/delay/2')
