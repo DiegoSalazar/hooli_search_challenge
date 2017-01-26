@@ -1,3 +1,4 @@
+import os
 import time
 import pprint
 import json
@@ -7,6 +8,7 @@ from flask import request
 from lib.searcher import Searcher
 
 app = Flask(__name__)
+SEARCH_ENDPOINT = os.getenv('SEARCH_ENDPOINT', 'http://httpbin.org/delay/2')
 
 @app.route("/")
 def search():
@@ -22,8 +24,8 @@ def results():
   num_pages = 100 if num_pages > 100 else num_pages
 
   t = time.time()
-  searcher = Searcher('http://httpbin.org/delay/2')
-  searcher.get_results(query, int(num_pages))
+  searcher = Searcher(SEARCH_ENDPOINT)
+  searcher.get_results(query, num_pages)
   elapsed_time = time.time() - t
 
   return render_template('results.html', query=query, num_pages=num_pages, elapsed_time=elapsed_time, searcher=searcher)
