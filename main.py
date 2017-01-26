@@ -23,7 +23,7 @@ def results():
 
   t = time.time()
   searcher = Searcher('http://httpbin.org/delay/2')
-  results = searcher.get_results(query, int(num_pages))
+  searcher.get_results(query, int(num_pages))
   elapsed_time = time.time() - t
 
   return render_template('results.html', query=query, num_pages=num_pages, elapsed_time=elapsed_time, searcher=searcher)

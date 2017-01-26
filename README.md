@@ -50,11 +50,14 @@ sudo pip install -r requirements.txt
 gunicorn main:app
 ```
 
-The server should now be available at `http://localhost:5000/`.
+The server should now be available at `http://localhost:8000/`.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+```
+cd tests/
+python -m unittest test_searcher
+```
 
 ## Built With
 

@@ -3,10 +3,10 @@ import requests
 class Searcher:
   def __init__(self, url):
     self.url = url
-    self.errors = []
-    self.results = []
 
   def get_results(self, query, num_pages):
+    self.results = []
+    self.errors = []
     response = []
 
     for _ in range(num_pages):
