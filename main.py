@@ -20,7 +20,7 @@ def results():
   query = request.args.get('QUERY', '')
 
   # Number of pages from Google = N (up to 100 pages)
-  num_pages = int(request.args.get('N', '0'))
+  num_pages = int(str.strip(request.args.get('N', '1')) or 1)
   num_pages = 100 if num_pages > 100 else num_pages
 
   t = time.time()
