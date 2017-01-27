@@ -19,7 +19,7 @@ class Searcher:
     numrequests = 0
     starttime = time.time()
 
-    for _ in range(numpages):
+    for i in range(numpages):
       elapsedtime = time.time() - starttime
 
       if elapsedtime >= ONE_SECOND and numrequests >= MAX_REQUESTS_PER_SECOND:
@@ -27,7 +27,7 @@ class Searcher:
       elif elapsedtime >= FIVE_MINUTES and numrequests >= MAX_REQUESTS_PER_5_MINS:
         time.sleep(ONE_MINUTE)
 
-      response = requests.get(self.url + "?QUERY=" + query + "&N=" + str(numpages))
+      response = requests.get(self.url + "?QUERY=" + query + "&N=" + str(numpages) + "&PAGE=" + str(i))
       numrequests += 1
       
       if response.status_code is 200:
