@@ -20,15 +20,15 @@ def results():
   query = request.args.get('QUERY', '')
 
   # Number of pages from Google = N (up to 100 pages)
-  num_pages = int(str.strip(str(request.args.get('N', '1'))) or 1)
-  num_pages = 100 if num_pages > 100 else num_pages
+  numpages = int(str.strip(str(request.args.get('N', '1'))) or 1)
+  numpages = 100 if numpages > 100 else numpages
 
   t = time.time()
   searcher = Searcher(SEARCH_ENDPOINT)
-  searcher.get_results(query, num_pages)
-  elapsed_time = time.time() - t
+  searcher.get_results(query, numpages)
+  elapsedtime = time.time() - t
 
-  return render_template('results.html', query=query, num_pages=num_pages, elapsed_time=elapsed_time, searcher=searcher)
+  return render_template('results.html', query=query, numpages=numpages, elapsedtime=elapsedtime, searcher=searcher)
 
 @app.context_processor
 def prettify_json():
